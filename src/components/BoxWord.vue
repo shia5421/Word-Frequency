@@ -19,7 +19,7 @@ export default {
     return {
       text: "",
       words: [],
-      i: 0,
+      i: 1,
       frequencyWord: {}
     };
   },
@@ -32,6 +32,27 @@ export default {
     },
     countWords() {
       this.splitWords();
+
+      this.frequencyWord = {};
+
+      this.frequencyWord[0] = {
+        name: this.words[0],
+        number: 1
+      };
+
+      this.words.reduce((previousItem, actualItem) => {
+        if (previousItem === actualItem) {
+          this.frequencyWord[this.i - 1].number++;
+          return previousItem;
+        } else {
+          this.frequencyWord[this.i] = {
+            name: actualItem,
+            number: 1
+          };
+          this.i++;
+          return actualItem;
+        }
+      });
     }
   }
 };
