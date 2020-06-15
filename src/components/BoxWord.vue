@@ -7,8 +7,8 @@
       rows="10"
       placeholder="Write here ;)"
       v-model="text"
-      @keypress.space="wordSeparator()"
     ></textarea>
+    <button @click="countWords()" @enter="countWords()">Count</button>
   </div>
 </template>
 
@@ -19,13 +19,16 @@ export default {
     return {
       text: "",
       words: [],
-      i: 0
+      i: 0,
+      frequencyWord: {}
     };
   },
   methods: {
-    wordSeparator() {
-      this.words[this.i] = this.text.replace(/^(.*) /g, "");
-      this.i++;
+    splitWords() {
+      this.words = this.text.split(/ /).filter(item => item != "");
+    },
+    countWords() {
+      this.splitWords();
     }
   }
 };
