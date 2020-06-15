@@ -25,7 +25,10 @@ export default {
   },
   methods: {
     splitWords() {
-      this.words = this.text.split(/ /).filter(item => item != "");
+      this.words = this.text
+        .split(/[^A-ZÀ-ź]/gi)
+        .filter(item => item != "")
+        .sort();
     },
     countWords() {
       this.splitWords();
