@@ -8,7 +8,8 @@
       placeholder="Write here ;)"
       v-model="text"
     ></textarea>
-    <button @click="countWords()" @enter="countWords()">Count</button>
+    <button @click="countWords()">Count</button>
+    <button @click="alphabeticalOrder()">alphabeticalOrder</button>
   </div>
 </template>
 
@@ -19,8 +20,8 @@ export default {
     return {
       text: "",
       words: [],
-      i: 1,
-      frequencyWord: {}
+      frequencyWord: [],
+      i: 0
     };
   },
   methods: {
@@ -30,10 +31,17 @@ export default {
         .filter(item => item != "")
         .sort();
     },
+    decreasingOrder() {
+      this.frequencyWord.sort((a, b) => b.number - a.number);
+    },
+    alphabeticalOrder() {
+      this.frequencyWord.sort((a, b) => (a.name > b.name ? 1 : -1));
+    },
     countWords() {
       this.splitWords();
 
-      this.frequencyWord = {};
+      this.frequencyWord = [];
+      this.i = 1;
 
       this.frequencyWord[0] = {
         name: this.words[0],
@@ -53,6 +61,8 @@ export default {
           return actualItem;
         }
       });
+
+      this.decreasingOrder();
     }
   }
 };
