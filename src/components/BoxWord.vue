@@ -1,5 +1,5 @@
 <template>
-  <div class="box_word">
+  <div id="box_word">
     <textarea
       name="wordCounter"
       id="wordCounter"
@@ -7,15 +7,16 @@
       rows="10"
       placeholder="Write here ;)"
       v-model="text"
+      maxlength="2048"
     ></textarea>
-    <div>
-      <button @click="count()">Count</button>
+    <div id="optionButtons">
       <select v-model="order" @click="orderWords()">
         <option disabled value>Select Order</option>
         <option>Ascending</option>
         <option>Descending</option>
         <option>Alphabetic</option>
       </select>
+      <button @click="count()">Count Words</button>
     </div>
     <div v-for="{name,number} in this.frequencyWord" :key="name.id">
       <p>{{name}}</p>
@@ -92,18 +93,53 @@ export default {
 
 
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+#box_word {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 480px;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+textarea {
+  padding: 0.5rem 0.5rem;
+  flex: 1;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border-radius: 0px 4px 4px 4px;
+  resize: none;
+  outline: none;
+  font-size: 1rem;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1);
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+#optionButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
 }
-a {
-  color: #42b983;
+#optionButtons select {
+  cursor: pointer;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 2px rgb(204, 204, 204);
+  font-size: 0.875rem;
+  color: #474747;
+  text-align: left;
+  padding: 0rem 0.5rem;
+}
+#optionButtons button {
+  height: 2rem;
+  padding: 0rem 0.5rem;
+  border: none;
+  border-radius: 4px;
+  background: #303030;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  outline: none;
+}
+#optionButtons button:active {
+  background: #707070;
 }
 </style>
