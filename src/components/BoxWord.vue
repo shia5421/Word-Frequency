@@ -8,8 +8,19 @@
       placeholder="Write here ;)"
       v-model="text"
     ></textarea>
-    <button @click="countWords()">Count</button>
-    <button @click="alphabeticalOrder()">alphabeticalOrder</button>
+    <div>
+      <button @click="count()">Count</button>
+      <select v-model="order" @click="orderWords()">
+        <option disabled value>Select Order</option>
+        <option>Ascending</option>
+        <option>Descending</option>
+        <option>Alphabetic</option>
+      </select>
+    </div>
+    <div v-for="{name,number} in this.frequencyWord" :key="name.id">
+      <p>{{name}}</p>
+      <p>{{number}}</p>
+    </div>
   </div>
 </template>
 
@@ -21,6 +32,7 @@ export default {
       text: "",
       words: [],
       frequencyWord: [],
+      order: "",
       i: 0
     };
   },
@@ -31,15 +43,22 @@ export default {
         .filter(item => item != "")
         .sort();
     },
-    decreasingOrder() {
-      this.frequencyWord.sort((a, b) => b.number - a.number);
-    },
-    alphabeticalOrder() {
-      this.frequencyWord.sort((a, b) => (a.name > b.name ? 1 : -1));
+    orderWords() {
+      switch (this.order) {
+        case "Ascending":
+          this.frequencyWord.sort((a, b) => a.number - b.number);
+          break;
+        case "Descending":
+          this.frequencyWord.sort((a, b) => b.number - a.number);
+          break;
+        case "Alphabetic":
+          this.frequencyWord.sort((a, b) => (a.name > b.name ? 1 : -1));
+          break;
+        default:
+          this.frequencyWord.sort((a, b) => b.number - a.number);
+      }
     },
     countWords() {
-      this.splitWords();
-
       this.frequencyWord = [];
       this.i = 1;
 
@@ -61,8 +80,11 @@ export default {
           return actualItem;
         }
       });
-
-      this.decreasingOrder();
+    },
+    count() {
+      this.splitWords();
+      this.countWords();
+      this.orderWords();
     }
   }
 };
