@@ -11,8 +11,8 @@ import BoxWord from "./components/BoxWord.vue";
 export default {
   name: "App",
   components: {
-    BoxWord
-  }
+    BoxWord,
+  },
 };
 </script>
 

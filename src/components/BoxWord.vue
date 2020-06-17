@@ -31,17 +31,24 @@
         <td>{{ number }}</td>
       </tr>
     </table>
+
+    <BarChart />
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
+import BarChart from "./BarChart.vue";
+
 export default {
   name: "BoxWord",
+  components: {
+    BarChart,
+  },
   data() {
     return {
       text: "",
       words: [],
-      frequencyWord: [],
       order: "",
       i: 0,
     };
@@ -96,6 +103,9 @@ export default {
       this.countWords();
       this.orderWords();
     },
+  },
+  computed: {
+    ...mapState(["frenquencyWords"]),
   },
 };
 </script>
