@@ -9,7 +9,8 @@
       v-model="text"
       maxlength="2048"
     ></textarea>
-    <div id="optionButtons">
+
+    <div class="optionButtons">
       <select v-model="order" @click="orderWords()">
         <option disabled value>Select Order</option>
         <option>Ascending</option>
@@ -18,10 +19,18 @@
       </select>
       <button @click="count()">Count Words</button>
     </div>
-    <div v-for="{name,number} in this.frequencyWord" :key="name.id">
-      <p>{{name}}</p>
-      <p>{{number}}</p>
-    </div>
+
+    <table v-if="this.words.length > 0">
+      <tr>
+        <th>Words</th>
+        <th>Rank</th>
+      </tr>
+
+      <tr v-for="{ name, number } in this.frequencyWord" :key="name.id">
+        <td>{{ name }}</td>
+        <td>{{ number }}</td>
+      </tr>
+    </table>
   </div>
 </template>
 
@@ -34,14 +43,14 @@ export default {
       words: [],
       frequencyWord: [],
       order: "",
-      i: 0
+      i: 0,
     };
   },
   methods: {
     splitWords() {
       this.words = this.text
         .split(/[^A-ZÀ-ź]/gi)
-        .filter(item => item != "")
+        .filter((item) => item != "")
         .sort();
     },
     orderWords() {
@@ -65,7 +74,7 @@ export default {
 
       this.frequencyWord[0] = {
         name: this.words[0],
-        number: 1
+        number: 1,
       };
 
       this.words.reduce((previousItem, actualItem) => {
@@ -75,7 +84,7 @@ export default {
         } else {
           this.frequencyWord[this.i] = {
             name: actualItem,
-            number: 1
+            number: 1,
           };
           this.i++;
           return actualItem;
@@ -86,18 +95,17 @@ export default {
       this.splitWords();
       this.countWords();
       this.orderWords();
-    }
-  }
+    },
+  },
 };
 </script>
-
 
 <style scoped>
 #box_word {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  max-width: 480px;
+  max-width: 530px;
 }
 textarea {
   padding: 0.5rem 0.5rem;
@@ -111,12 +119,13 @@ textarea {
   font-size: 1rem;
   box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1);
 }
-#optionButtons {
+.optionButtons {
   display: flex;
   justify-content: space-between;
   margin-top: 0.5rem;
+  margin-bottom: 1rem;
 }
-#optionButtons select {
+.optionButtons select {
   cursor: pointer;
   background-color: #fff;
   border-radius: 5px;
@@ -125,8 +134,9 @@ textarea {
   color: #474747;
   text-align: left;
   padding: 0rem 0.5rem;
+  outline: none;
 }
-#optionButtons button {
+.optionButtons button {
   height: 2rem;
   padding: 0rem 0.5rem;
   border: none;
@@ -139,7 +149,25 @@ textarea {
   cursor: pointer;
   outline: none;
 }
-#optionButtons button:active {
+.optionButtons button:active {
   background: #707070;
+}
+table {
+  margin: 0 auto;
+  padding: 0rem 0.5rem;
+  text-align: left;
+  border: solid;
+  border-radius: 5px;
+  width: 90%;
+}
+
+@media only screen and (max-width: 787px) {
+  #box_word {
+    max-width: 380px;
+  }
+  table {
+    max-width: 100%;
+    width: 50%;
+  }
 }
 </style>

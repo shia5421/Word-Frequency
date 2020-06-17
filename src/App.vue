@@ -23,7 +23,7 @@ export default {
   padding: 0px;
 }
 h1 {
-  font-size: 3.75rem;
+  font-size: 4.5rem;
   margin-bottom: 1.5rem;
 }
 #app {
@@ -33,5 +33,10 @@ h1 {
   text-align: center;
   color: #000000;
   margin-top: 3.75rem;
+}
+@media only screen and (max-width: 787px) {
+  h1 {
+    font-size: 3rem;
+  }
 }
 </style>
