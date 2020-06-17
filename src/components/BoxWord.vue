@@ -43,14 +43,15 @@ export default {
       words: [],
       frequencyWord: [],
       order: "",
-      i: 0,
+      i: 0
     };
   },
   methods: {
     splitWords() {
       this.words = this.text
+        .toLowerCase()
         .split(/[^A-ZÀ-ź]/gi)
-        .filter((item) => item != "")
+        .filter(item => item != "")
         .sort();
     },
     orderWords() {
@@ -74,7 +75,7 @@ export default {
 
       this.frequencyWord[0] = {
         name: this.words[0],
-        number: 1,
+        number: 1
       };
 
       this.words.reduce((previousItem, actualItem) => {
@@ -84,7 +85,7 @@ export default {
         } else {
           this.frequencyWord[this.i] = {
             name: actualItem,
-            number: 1,
+            number: 1
           };
           this.i++;
           return actualItem;
@@ -95,8 +96,8 @@ export default {
       this.splitWords();
       this.countWords();
       this.orderWords();
-    },
-  },
+    }
+  }
 };
 </script>
 
