@@ -1,36 +1,43 @@
 <template>
-  <div id="box_word">
-    <textarea
-      name="wordCounter"
-      id="wordCounter"
-      cols="30"
-      rows="10"
-      placeholder="Write here ;)"
-      v-model="text"
-      maxlength="2048"
-    ></textarea>
+  <div>
+    <div id="box_word">
+      <textarea
+        name="wordCounter"
+        id="wordCounter"
+        cols="30"
+        rows="10"
+        placeholder="Write here ;)"
+        v-model="text"
+        maxlength="2048"
+      ></textarea>
 
-    <div class="optionButtons">
-      <select v-model="order" @click="orderWords()">
-        <option disabled value>Select Order</option>
-        <option>Ascending</option>
-        <option>Descending</option>
-        <option>Alphabetic</option>
-      </select>
-      <button @click="count()">Count Words</button>
+      <div class="optionButtons">
+        <select v-model="order" @click="orderWords()">
+          <option disabled value>Select Order</option>
+          <option>Ascending</option>
+          <option>Descending</option>
+          <option>Alphabetic</option>
+        </select>
+        <button @click="count()">Count Words</button>
+      </div>
     </div>
+    <div>
+      <table v-if="this.words.length > 0" class="content-table">
+        <thead>
+          <tr>
+            <th>Words</th>
+            <th width="50px">Rank</th>
+          </tr>
+        </thead>
 
-    <table v-if="this.words.length > 0">
-      <tr>
-        <th>Words</th>
-        <th>Rank</th>
-      </tr>
-
-      <tr v-for="{ name, number } in this.frequencyWord" :key="name.id">
-        <td>{{ name }}</td>
-        <td>{{ number }}</td>
-      </tr>
-    </table>
+        <tbody>
+          <tr v-for="{ name, number } in this.frequencyWord" :key="name.id">
+            <td>{{ name }}</td>
+            <td class="amount">{{ number }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
 
@@ -153,20 +160,33 @@ textarea {
 .optionButtons button:active {
   background: #707070;
 }
-table {
-  margin: 0 auto;
-  padding: 0rem 0.5rem;
-  text-align: left;
-  border: solid;
-  border-radius: 5px;
-  width: 90%;
-}
 
+.content-table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  text-align: left;
+  min-width: 530px;
+}
+.content-table thead tr {
+  background: #303030;
+  color: #ffffff;
+  font-weight: bold;
+}
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+}
+.content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+.amount {
+  text-align: center;
+}
 @media only screen and (max-width: 787px) {
   #box_word {
     max-width: 380px;
   }
-  table {
+  .content-table {
     max-width: 100%;
     width: 50%;
   }
