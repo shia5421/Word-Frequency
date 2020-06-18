@@ -26,7 +26,7 @@
         <thead>
           <tr>
             <th>Words</th>
-            <th width="50px">Rank</th>
+            <th width="50px">Count</th>
           </tr>
         </thead>
 
