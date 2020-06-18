@@ -166,6 +166,7 @@ textarea {
   border-collapse: collapse;
   text-align: left;
   min-width: 530px;
+  animation: dropDown 2s forwards;
 }
 .content-table thead tr {
   background: #303030;
@@ -181,6 +182,16 @@ textarea {
 }
 .amount {
   text-align: center;
+}
+@keyframes dropDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -30px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 @media only screen and (max-width: 787px) {
   #box_word {
