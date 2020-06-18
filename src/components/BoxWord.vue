@@ -187,8 +187,7 @@ textarea {
     max-width: 380px;
   }
   .content-table {
-    max-width: 100%;
-    width: 50%;
+    min-width: 380px;
   }
 }
 </style>
