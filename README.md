@@ -1,4 +1,4 @@
-# frequency_word
+# Words Frequency
 
 ## Project setup
 ```
