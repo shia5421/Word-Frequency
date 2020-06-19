@@ -110,7 +110,6 @@ export default {
 
 <style scoped>
 #box_word {
-  padding: 0 1.5rem;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -163,12 +162,11 @@ textarea {
 }
 
 .content-table {
-  padding: 0 1.5rem;
   margin: 0 auto;
   border-collapse: collapse;
   text-align: left;
   min-width: 530px;
-  animation: dropDown 2s forwards;
+  animation: dropDown 1s forwards;
 }
 .content-table thead tr {
   background: #303030;
@@ -198,9 +196,11 @@ textarea {
 @media only screen and (max-width: 787px) {
   #box_word {
     max-width: 380px;
+    padding: 0 1.5rem;
   }
   .content-table {
     min-width: 300px;
+    padding: 0 1.5rem;
   }
 }
 </style>
