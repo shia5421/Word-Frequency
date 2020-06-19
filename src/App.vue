@@ -58,7 +58,7 @@ footer a:hover {
   text-align: center;
   color: #000000;
   margin-top: 3.75rem;
-  animation: fadeIn 2s forwards;
+  animation: fadeIn 1.5s forwards;
 }
 #img-github {
   width: 212px;
@@ -76,11 +76,23 @@ footer a:hover {
   }
 }
 @media only screen and (max-width: 787px) {
+  #app {
+    margin-top: 1rem;
+  }
+  #img-github {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 0px;
+  }
   h1 {
-    font-size: 3rem;
+    font-size: 2.7rem;
+    margin-bottom: 1rem;
   }
   main {
-    min-height: calc(100vh - 390px);
+    min-height: calc(100vh - 370px);
+  }
+  footer {
+    margin-bottom: 0.5rem;
   }
 }
 </style>
