@@ -110,6 +110,7 @@ export default {
 
 <style scoped>
 #box_word {
+  padding: 0 1.5rem;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -162,6 +163,7 @@ textarea {
 }
 
 .content-table {
+  padding: 0 1.5rem;
   margin: 0 auto;
   border-collapse: collapse;
   text-align: left;
@@ -198,7 +200,7 @@ textarea {
     max-width: 380px;
   }
   .content-table {
-    min-width: 380px;
+    min-width: 300px;
   }
 }
 </style>
