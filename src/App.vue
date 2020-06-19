@@ -1,10 +1,20 @@
 <template>
   <div id="app">
-    <h1>Words Frequency</h1>
-    <BoxWord />
-    <a href="https://github.com/rafaelofil/Word-Frequency" target="_blank">
-      <img id="img-github" src="./assets/img/github.jpg" alt="GitHub" />
-    </a>
+    <header>
+      <h1>Words Frequency</h1>
+    </header>
+    <main>
+      <BoxWord />
+    </main>
+    <footer>
+      <a href="https://github.com/rafaelofil/Word-Frequency" target="_blank">
+        <img id="img-github" src="./assets/img/github.jpg" alt="GitHub" />
+      </a>
+      <p>
+        Made by
+        <a href="https://github.com/rafaelofil">Rafael Filho</a>
+      </p>
+    </footer>
   </div>
 </template>
 
@@ -28,6 +38,18 @@ export default {
 h1 {
   font-size: 4.5rem;
   margin-bottom: 1.5rem;
+}
+main {
+  min-height: calc(100vh - 420px);
+}
+footer a {
+  font-weight: bold;
+  color: #548ba1;
+  outline: none;
+  text-decoration: none;
+}
+footer a:hover {
+  color: #000000;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -56,6 +78,9 @@ h1 {
 @media only screen and (max-width: 787px) {
   h1 {
     font-size: 3rem;
+  }
+  main {
+    min-height: calc(100vh - 390px);
   }
 }
 </style>
