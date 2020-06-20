@@ -20,9 +20,10 @@
         </select>
         <button @click="count()">Count Words</button>
       </div>
+      <p v-if="this.words.length > 0" class="total-words">Total of Words: {{words.length}}</p>
     </div>
-    <div>
-      <table v-if="this.words.length > 0" class="content-table">
+    <div v-if="this.words.length > 0">
+      <table class="content-table">
         <thead>
           <tr>
             <th>Words</th>
@@ -115,6 +116,14 @@ export default {
   margin: 0 auto;
   max-width: 530px;
 }
+.total-words {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
+  font-size: 1.3rem;
+  font-weight: bold;
+  animation: dropDown 1s forwards;
+}
 textarea {
   padding: 0.5rem 0.5rem;
   flex: 1;
@@ -131,7 +140,6 @@ textarea {
   display: flex;
   justify-content: space-between;
   margin-top: 0.5rem;
-  margin-bottom: 1rem;
 }
 .optionButtons select {
   cursor: pointer;
@@ -197,6 +205,9 @@ textarea {
   #box_word {
     max-width: 380px;
     padding: 0 1.5rem;
+  }
+  .total-words {
+    font-size: 1rem;
   }
   .content-table {
     min-width: 300px;
