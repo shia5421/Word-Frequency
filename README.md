@@ -1,5 +1,10 @@
 # Words Frequency
-
+<h1 align="center">
+  <p align="center" display="flex">
+    <img src='#' width="440">
+    <img src="#" width="440"> 
+  </p>
+</h1> 
 
 ## Table of contents
 * [General info](#general-info)
