@@ -89,7 +89,7 @@ footer a:hover {
     margin-bottom: 1rem;
   }
   main {
-    min-height: calc(100vh - 370px);
+    min-height: calc(100vh - 360px);
   }
   footer {
     margin-bottom: 0.5rem;
