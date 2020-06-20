@@ -1,8 +1,8 @@
 # Words Frequency
 <h1 align="center">
   <p align="center" display="flex">
-    <img src='#' width="440">
-    <img src="#" width="440"> 
+    <img src="./src/assets/img/home.jpg" width="440">
+    <img src="./src/assets/img/table-words.jpg" width="440"> 
   </p>
 </h1> 
 
