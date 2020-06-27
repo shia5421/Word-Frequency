@@ -1,7 +1,6 @@
 # Words Frequency
 <h1 align="center">
   <p align="center" display="flex">
-    <img src="./src/assets/img/home.jpg" width="400">
     <img src="./src/assets/img/table-words.jpg" width="400"> 
   </p>
 </h1> 
