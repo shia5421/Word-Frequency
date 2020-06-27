@@ -1,6 +1,6 @@
-# Words Frequency
-<h1 align="center">
-    <img src="./src/assets/img/table-words.jpg"> 
+
+<h1>
+    <img src="./src/assets/img/table-words.jpg" width="400"> 
 </h1> 
 
 ## Table of contents
