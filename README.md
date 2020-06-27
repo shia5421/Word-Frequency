@@ -1,6 +1,6 @@
 
 <h1>
-    <img src="./src/assets/img/table-words.jpg" width="400"> 
+    <img src="./src/assets/img/table-words.jpg"> 
 </h1> 
 
 ## Table of contents
