@@ -1,38 +1,41 @@
-
 <h1 align="center">
-    <img src="./src/assets/img/table-words.jpg"> 
-</h1> 
+    <img src="./src/assets/img/home_frequencyWord.jpg"> 
+</h1>
 
 ## Table of contents
-* [General info](#general-info)
-* [Technologies](#technologies)
-* [Setup](#setup)
-* [Status](#status)
-* [Final Considerations](#final-considerations)
+
+- [General info](#general-info)
+- [Technologies](#technologies)
+- [Setup](#setup)
+- [Status](#status)
+- [Final Considerations](#final-considerations)
 
 ## General Info
+
 Simple website for counting repetition of words and the total it in a text.
 
 ## Technologies
+
 Project is created with:
 
-* Vue 2.6
+- Vue 2.6
 
 ## Setup
+
 To run this project in local is necessery:
 
 ```
 $ npm install
 $ npm run serve
 ```
+
 Or you can acess the link and check the website:
 
 https://rafaelofil.github.io/Word-Frequency/
 
-
 ## Status
 
-Project is: finished, but if I have any inspiration I will add. 
+Project is: finished, but if I have any inspiration I will add.
 
 ## Final considerations
 
